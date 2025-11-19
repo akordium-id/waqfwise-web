@@ -1,0 +1,50 @@
+{
+  "common": {
+    "welcome": "Selamat Datang di WaqfWise",
+    "description": "Platform modern untuk mengelola kampanye wakaf dan donasi",
+    "loading": "Memuat...",
+    "error": "Terjadi kesalahan",
+    "success": "Berhasil",
+    "cancel": "Batal",
+    "save": "Simpan",
+    "edit": "Edit",
+    "delete": "Hapus",
+    "submit": "Kirim",
+    "search": "Cari",
+    "filter": "Filter",
+    "export": "Ekspor",
+    "import": "Impor"
+  },
+  "navigation": {
+    "home": "Beranda",
+    "campaigns": "Kampanye",
+    "donations": "Donasi",
+    "about": "Tentang",
+    "contact": "Kontak",
+    "login": "Masuk",
+    "register": "Daftar",
+    "logout": "Keluar",
+    "profile": "Profil"
+  },
+  "campaign": {
+    "title": "Kampanye Wakaf",
+    "create": "Buat Kampanye",
+    "browse": "Jelajahi Kampanye",
+    "featured": "Kampanye Unggulan",
+    "target": "Target",
+    "raised": "Terkumpul",
+    "donors": "Donatur",
+    "daysLeft": "Hari Tersisa",
+    "donate": "Donasi Sekarang"
+  },
+  "auth": {
+    "signIn": "Masuk",
+    "signUp": "Daftar",
+    "email": "Email",
+    "password": "Kata Sandi",
+    "confirmPassword": "Konfirmasi Kata Sandi",
+    "forgotPassword": "Lupa Kata Sandi?",
+    "noAccount": "Belum punya akun?",
+    "hasAccount": "Sudah punya akun?"
+  }
+}

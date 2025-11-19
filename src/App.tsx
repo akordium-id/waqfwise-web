@@ -1,20 +1,12 @@
 import { Box, Container, Typography } from '@mui/material'
-import { ThemeProvider, createTheme } from '@mui/material/styles'
+import { ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
-
-// Basic theme configuration
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#2E7D32',
-    },
-    secondary: {
-      main: '#F57C00',
-    },
-  },
-})
+import { useTranslation } from 'react-i18next'
+import theme from './theme/theme'
 
 function App() {
+  const { t } = useTranslation()
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -30,10 +22,10 @@ function App() {
           }}
         >
           <Typography variant="h2" component="h1" gutterBottom>
-            Welcome to WaqfWise
+            {t('common.welcome')}
           </Typography>
           <Typography variant="h5" color="text.secondary">
-            Modern platform for managing Islamic endowment campaigns
+            {t('common.description')}
           </Typography>
         </Box>
       </Container>
