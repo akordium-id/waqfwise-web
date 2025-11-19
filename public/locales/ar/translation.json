@@ -1,0 +1,50 @@
+{
+  "common": {
+    "welcome": "مرحبا بكم في وقف وايز",
+    "description": "منصة حديثة لإدارة حملات الوقف والتبرعات",
+    "loading": "جاري التحميل...",
+    "error": "حدث خطأ",
+    "success": "نجاح",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "submit": "إرسال",
+    "search": "بحث",
+    "filter": "تصفية",
+    "export": "تصدير",
+    "import": "استيراد"
+  },
+  "navigation": {
+    "home": "الرئيسية",
+    "campaigns": "الحملات",
+    "donations": "التبرعات",
+    "about": "حول",
+    "contact": "اتصل",
+    "login": "تسجيل الدخول",
+    "register": "التسجيل",
+    "logout": "تسجيل الخروج",
+    "profile": "الملف الشخصي"
+  },
+  "campaign": {
+    "title": "حملات الوقف",
+    "create": "إنشاء حملة",
+    "browse": "تصفح الحملات",
+    "featured": "الحملات المميزة",
+    "target": "الهدف",
+    "raised": "المجموع",
+    "donors": "المتبرعون",
+    "daysLeft": "الأيام المتبقية",
+    "donate": "تبرع الآن"
+  },
+  "auth": {
+    "signIn": "تسجيل الدخول",
+    "signUp": "التسجيل",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "noAccount": "ليس لديك حساب؟",
+    "hasAccount": "هل لديك حساب؟"
+  }
+}

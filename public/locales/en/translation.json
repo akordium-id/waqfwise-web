@@ -1,0 +1,50 @@
+{
+  "common": {
+    "welcome": "Welcome to WaqfWise",
+    "description": "Modern platform for managing Waqf campaigns and donations",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "submit": "Submit",
+    "search": "Search",
+    "filter": "Filter",
+    "export": "Export",
+    "import": "Import"
+  },
+  "navigation": {
+    "home": "Home",
+    "campaigns": "Campaigns",
+    "donations": "Donations",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "profile": "Profile"
+  },
+  "campaign": {
+    "title": "Waqf Campaigns",
+    "create": "Create Campaign",
+    "browse": "Browse Campaigns",
+    "featured": "Featured Campaigns",
+    "target": "Target",
+    "raised": "Raised",
+    "donors": "Donors",
+    "daysLeft": "Days Left",
+    "donate": "Donate Now"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "forgotPassword": "Forgot Password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?"
+  }
+}
