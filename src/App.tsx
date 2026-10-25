@@ -1,35 +1,45 @@
-import { Box, Container, Typography } from '@mui/material'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
-import { useTranslation } from 'react-i18next'
+import Box from '@mui/material/Box'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import theme from './theme/theme'
+import AppBar from './components/layout/AppBar/AppBar'
+import Footer from './components/layout/Footer/Footer'
+import CampaignListPage from './pages/public/CampaignList/CampaignListPage'
+import CampaignDetailPage from './pages/public/CampaignDetail/CampaignDetailPage'
+import DonatePage from './pages/public/Donate/DonatePage'
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 1,
+      staleTime: 5 * 60 * 1000,
+    },
+  },
+})
 
 function App() {
-  const { t } = useTranslation()
-
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Container maxWidth="lg">
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            minHeight: '100vh',
-            textAlign: 'center',
-          }}
-        >
-          <Typography variant="h2" component="h1" gutterBottom>
-            {t('common.welcome')}
-          </Typography>
-          <Typography variant="h5" color="text.secondary">
-            {t('common.description')}
-          </Typography>
-        </Box>
-      </Container>
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <BrowserRouter>
+          <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+            <AppBar />
+            <Box component="main" sx={{ flexGrow: 1 }}>
+              <Routes>
+                <Route path="/" element={<CampaignListPage />} />
+                <Route path="/campaigns" element={<CampaignListPage />} />
+                <Route path="/campaigns/:slug" element={<CampaignDetailPage />} />
+                <Route path="/campaigns/:slug/donate" element={<DonatePage />} />
+              </Routes>
+            </Box>
+            <Footer />
+          </Box>
+        </BrowserRouter>
+      </ThemeProvider>
+    </QueryClientProvider>
   )
 }
 
