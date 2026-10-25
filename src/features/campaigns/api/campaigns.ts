@@ -11,9 +11,9 @@ export async function getCampaignBySlug(
   params: CampaignQueryParams = {},
 ): Promise<Campaign | undefined> {
   const response = await getCampaigns({
-    ...params,
     limit: 50,
     status: 'active',
+    ...params,
   })
   return response.campaigns.find((c) => c.slug === slug)
 }
