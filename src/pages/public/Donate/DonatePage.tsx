@@ -9,6 +9,22 @@ import { useCreateDonation } from '../../../features/donations/hooks/useCreateDo
 import DonateWizard from '../../../features/donations/components/DonateWizard/DonateWizard'
 import type { DonationFormData } from '../../../features/donations/schemas/donationSchema'
 
+const TRUSTED_REDIRECT_HOSTS = ['midtrans.com', 'xendit.co', 'localhost']
+
+function isSafeRedirect(url: string): boolean {
+  try {
+    const u = new URL(url)
+    return (
+      u.protocol === 'https:' &&
+      (TRUSTED_REDIRECT_HOSTS.includes(u.hostname) ||
+        u.hostname.endsWith('.midtrans.com') ||
+        u.hostname.endsWith('.xendit.co'))
+    )
+  } catch {
+    return false
+  }
+}
+
 export default function DonatePage() {
   const { slug } = useParams<{ slug: string }>()
   const { data: campaign, isLoading } = useCampaign(slug || '')
@@ -29,7 +45,7 @@ export default function DonatePage() {
       },
       {
         onSuccess: (res) => {
-          if (res.payment_url) {
+          if (res.payment_url && isSafeRedirect(res.payment_url)) {
             window.location.href = res.payment_url
           }
         },

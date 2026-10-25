@@ -7,6 +7,7 @@ import Box from '@mui/material/Box'
 import Skeleton from '@mui/material/Skeleton'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
+import CardMedia from '@mui/material/CardMedia'
 import Button from '@mui/material/Button'
 import { useCampaign } from '../../../features/campaigns/hooks/useCampaigns'
 import ProgressBar from '../../../components/domain/ProgressBar/ProgressBar'
@@ -49,15 +50,16 @@ export default function CampaignDetailPage() {
     <Container maxWidth="lg" sx={{ py: 4 }}>
       <Grid container spacing={4}>
         <Grid item xs={12} md={8}>
-          <Box
+          <CardMedia
+            component="img"
+            src={campaign.image_url || ''}
+            alt={campaign.title}
             sx={{
               height: 300,
+              width: '100%',
               borderRadius: 2,
-              overflow: 'hidden',
+              objectFit: 'cover',
               bgcolor: 'grey.200',
-              backgroundImage: campaign.image_url ? `url(${campaign.image_url})` : 'none',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
             }}
           />
           <Box sx={{ display: 'flex', gap: 1, mt: 2 }}>

@@ -4,7 +4,7 @@ import Stepper from '@mui/material/Stepper'
 import Step from '@mui/material/Step'
 import StepLabel from '@mui/material/StepLabel'
 import Button from '@mui/material/Button'
-import type { DonationFormData } from '../../schemas/donationSchema'
+import { donationSchema, type DonationFormData } from '../../schemas/donationSchema'
 import AmountStep from '../AmountStep/AmountStep'
 import DonorInfoStep from '../DonorInfoStep/DonorInfoStep'
 import PaymentStep from '../PaymentStep/PaymentStep'
@@ -33,25 +33,25 @@ export default function DonateWizard({ onSubmit, isSubmitting = false }: DonateW
     setFormData((prev) => ({ ...prev, ...data }))
   }
 
+  const stepSchemas = {
+    0: donationSchema.pick({ amount: true }),
+    1: donationSchema.pick({ donor_name: true, donor_email: true }),
+    2: donationSchema.pick({ payment_method: true }),
+  }
+
   const canNext = () => {
-    switch (activeStep) {
-      case 0:
-        return formData.amount > 0
-      case 1:
-        return (
-          formData.donor_name.length >= 2 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.donor_email)
-        )
-      case 2:
-        return !!formData.payment_method
-      default:
-        return true
-    }
+    if (activeStep === steps.length - 1) return true
+    const schema = stepSchemas[activeStep as keyof typeof stepSchemas]
+    return schema.safeParse(formData).success
   }
 
   const handleNext = () => {
     if (activeStep === steps.length - 1) {
+      const result = donationSchema.safeParse(formData)
+      if (!result.success) return
       onSubmit(formData)
     } else {
+      if (!canNext()) return
       setActiveStep((s) => s + 1)
     }
   }
